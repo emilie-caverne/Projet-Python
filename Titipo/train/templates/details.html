@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Détails de votre voyage</title>
+    <link
+    rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+    <style>
+      body {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: large;
+        align-items: center;
+        text-align: center;
+      }
+      header {
+        background-color: #3f9a9a86;
+        height: 140px;
+        border-radius: 15px;
+      }
+      .logo {
+        display: block;
+        height: 80px;
+        margin: 10px;
+      }
+      header nav {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .nav-items {
+        justify-content: space-around;
+        align-items: center;
+      }
+      a {
+        text-decoration: none;
+        color: #b5145a;
+        font-size: x-large;
+      }
+      a:hover {
+        color: rgb(255, 101, 155);
+      }
+      main {
+        margin-top: 50px;
+      }
+      h2 {
+        color: #3f9a9a;
+      }
+      h1 {
+        color: #b5145a;
+      }
+      p {
+        color: #047887;
+      }
+      .description {
+        margin-left: 300px;
+        margin-right: 300px;
+        margin-bottom: 50px;
+      }
+      .imgVille {
+        height: 550px;
+        border-radius: 60%;
+      }
+      .arrow {
+        margin: 10px;
+        margin-bottom: 20px;
+      }
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3f9a9a54;
+        height: 100px;
+        margin-top: 50px;
+        border-radius: 15px;
+      }
+      .footerL {
+        display: flex;
+        align-items: center;
+        margin-left: 500px;
+        flex-direction: column;
+      }
+      .footerR {
+        display: flex;
+        flex-direction: column;
+        margin-right: 500px;
+        text-align: left;
+      }
+      .footerR a {
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-items">
+          <a href="http://localhost:8000/train/">
+            <img src="/static/IMG/logo.png" alt="" class="logo" />
+          </a>
+          <a href="http://localhost:8000/train/">Accueil</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <h2>Bienvenue sur le détail de votre trajet !</h2>
+      <br />
+      <div class="description">
+        <p>Voici les informations sur le trajet qui vous intéresse :</p>
+        <h1>{{ depart }} - {{ arrivee }}</h1>
+        <p>
+          Ce train partira de {{ depart }} à {{ heureDepart }} et arrivera a
+          destination de {{arrivee}} à {{ heureArrivee }}.
+        </p>
+        <p>Ce trajet durera {{ dureeTrajet}}.</p>
+        <p>{{ info }}</p>
+        <p>Ce trajet est au prix de {{ prix }}.</p>
+      </div>
+      <img src="{{ image.url}}" alt="My image" class="imgVille" /> <br><br>
+      <a
+        href="http://localhost:8000/train/details/{{ precedent }}"
+        class="arrow"
+      >
+      <i class="fa-solid fa-arrow-left"></i> Précédent
+      </a>
+      <a
+        href="http://localhost:8000/train/details/{{ suivant }}"
+        class="arrow"
+      >
+        Suivant <i class="fa-solid fa-arrow-right"></i></a
+      >
+    </main>
+    <footer>
+      <div class="footerL">
+        <img
+          src="/static/IMG/logo.png"
+          alt=""
+          style="height: 50px; margin-right: 10px"
+        />
+        <p style="margin: 0">© Emilie Caverne - Titipo</p>
+      </div>
+      <div class="footerR">
+        <a href="http://localhost:8000/train/">Accueil</a>
+        <a href="http://localhost:8000/train/aleatoire">Voyage aléatoire</a>
+      </div>
+    </footer>
+  </body>
+</html>
